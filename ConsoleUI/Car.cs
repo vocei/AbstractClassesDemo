@@ -1,0 +1,22 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleUI
+{
+    public class Car : Vehicle
+    {
+        public Car() 
+        {
+
+        }
+
+        public bool Hastrunk { get; set; } = true;
+        public override void DriveAbstract()
+        {
+            Console.WriteLine($"This car is currently in drive!");
+        }
+    }
+}
