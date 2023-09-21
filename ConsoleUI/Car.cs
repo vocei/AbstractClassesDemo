@@ -13,7 +13,7 @@ namespace ConsoleUI
 
         }
 
-        public bool Hastrunk { get; set; } = true;
+        public bool HasTrunk { get; set; } = true;
         public override void DriveAbstract()
         {
             Console.WriteLine($"This car is currently in drive!");

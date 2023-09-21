@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,28 +12,8 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            /*
-             * Todo follow all comments!! 
-             */
+           var vehicles = new List<Vehicle>();
 
-            #region Vehicles
-
-            /*
-             * Create an abstract class called Vehicle
-             * The vehicle class shall have three string properties Year, Make, and Model
-             * Set the defaults to something generic in the Vehicle class
-             * Vehicle shall have an abstract method called DriveAbstract with no implementation
-             * Vehicle shall have a virtual method called DriveVirtual with a base implementation.
-             */
-
-            /* 
-             * Now create 2 non-abstract classes: Car and Motorcycle, that inherit from Vehicle
-             * Add a distict property in the 2 derived classes such as HasTrunk for Car and HasSideCart for Motorcycle
-             * Provide the implementations for the abstract methods
-             * Only in the Motorcycle class will you override the virtual drive method
-            */
-
-            // Create a list of Vehicle called vehicles
 
             /*
              * Create 4 instances: 1 Car, 1 Motorcycle, and then 2 instances of type Vehicle (use explicit typing) but use constuctors from derived classes
@@ -46,8 +28,46 @@ namespace ConsoleUI
 
             // Call each of the drive methods for one car and one motorcycle
 
-            #endregion            
-            Console.ReadLine();
+
+            Car mazda = new Car()
+            {
+
+                HasTrunk = true,
+                Make = "Mazda",
+                Model = "r8",
+                Year = 2005
+            };
+
+            Motorcycle harley = new Motorcycle()
+            {
+                HasSideCart = true,
+                Make = "Harley",
+                Model = "Chopper",
+                Year = 1995
+
+
+            };
+
+            Vehicle GNC = new Car()
+            {HasTrunk = true, Make = "GNC", Model = "Ram", Year = 2024 };
+
+            Vehicle bugg = new Car()
+            {Make = "Bugatti", Model = "Veyron", Year = 2001 };
+
+            
+            vehicles.Add(mazda);
+            vehicles.Add(bugg);
+            vehicles.Add(GNC);
+            vehicles.Add(harley);
+
+            foreach (var veh in vehicles) 
+            {
+                Console.WriteLine(veh);
+                Console.WriteLine($" Make: {veh.Make} Model: {veh.Model} Year: {veh.Year}");
+                veh.DriveAbstract();
+                Console.WriteLine($"\n");
+            }
+
         }
     }
 }

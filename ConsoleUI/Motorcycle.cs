@@ -18,5 +18,10 @@ namespace ConsoleUI
         {
             Console.WriteLine($"This motorcycle is currently in drive!");
         }
+
+        public override void DriveVirtural()
+        {
+            Console.WriteLine($"This {GetType().Name} is a {GetType().BaseType.Name} is driving virturally!");
+        }
     }
 }
